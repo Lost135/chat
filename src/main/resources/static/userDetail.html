@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>个人主页</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!--导入jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+</head>
+<body>
+<div class="rg_layout">
+    <div class="rg_form clearfix">
+        <div class="rg_form_left">
+            <p>用户主页</p>
+        </div>
+        <div class="rg_form_center">
+
+            <form id="faceForm" >
+                <table style="margin-top: 25px;">
+                    <tr>
+                        <td class="td_left">
+                            <img id="face" src="http://localhost:8080/pic/" style="border:2px solid #000000; width:150px; height:150px " >
+                            <input type="file" id="pic" name="pic" >
+                        </td>
+                        <td class="td_right check">
+                            <input id=“subFace” type="submit" class="submit" value="保存头像">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <!--注册表单-->
+            <form id="userForm">
+                <table style="margin-top: 25px;">
+                    <tr>
+                        <td class="td_left">
+                            <label for="name">用户名</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="name" name="name" placeholder="请输入账号">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="password">密码</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="password" name="password" placeholder="******">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="email">Email</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="email" name="email" placeholder="请输入Email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                        </td>
+                        <td class="td_right check">
+                            <input id=“subInfo” type="submit" class="submit" value="保存信息">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <span id="errorMsg" style="color:#ff0000;text-align: center"></span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/userDetail.js"></script>
+</body>
+</html>

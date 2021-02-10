@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!--导入jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<!-- 头部 end -->
+<div class="rg_layout">
+    <div class="rg_form clearfix">
+        <div class="rg_form_left">
+            <p>用户登录</p>
+            <p>USER LOGIN</p>
+        </div>
+        <div class="rg_form_center">
+
+
+            <!--注册表单-->
+            <form id="loginForm">
+                <!--提交处理请求的标识符-->
+                <input type="hidden" name="action" value="login">
+                <table style="margin-top: 25px;">
+                    <tr>
+                        <td class="td_left">
+                            <label for="name">用户名</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="name" name="name" placeholder="请输入账号">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="password">密码</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="password" name="password" placeholder="请输入密码">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="check">验证码</label>
+                        </td>
+                        <td class="td_right check">
+                            <input type="text" id="check" name="check" class="check">
+                            <img src="user/checkCode" height="32px" alt="" onclick="changeCheckCode(this)">
+                            <script type="text/javascript">
+                                //图片点击事件
+                                function changeCheckCode(img) {
+                                    img.src="user/checkCode?"+new Date().getTime();
+                                }
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                        </td>
+                        <td class="td_right check">
+                            <input type="submit" class="submit" value="登录">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <span id="errorMsg" style="color:#ff0000;text-align: center"></span>
+        </div>
+        <div class="rg_form_right">
+            <p>
+                申请账号？
+                <a href="register.html">立即注册</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>
