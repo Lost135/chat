@@ -16,7 +16,6 @@ import javax.imageio.ImageIO;
 
 /**
  * 裁剪、缩放图片工具类
- * @author CSDN 没有梦想-何必远方
  */
 public class ImgUtil {
     /**
