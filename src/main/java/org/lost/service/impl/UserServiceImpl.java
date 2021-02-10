@@ -46,20 +46,16 @@ public class UserServiceImpl implements UserService {
             user.setStatus("N");
             user.setCode(UuidUtil.getUuid());
             user.setEmail(rUser.getEmail());
-/**
+
             // 生成二维码，并且将二维码的路径保存到数据库中
             // 要生成二维码中的字符串
-            String qrcodeStr = "hichat://" + user.getName();
-            // 获取一个临时目录，用来保存临时的二维码图片
-            String tempDir = env.getProperty("hcat.tmpdir");
-            String qrCodeFilePath = tempDir + user.getName() + ".png";
-            qrCodeUtils.createQRCode(qrCodeFilePath, qrcodeStr);
-
-            // 将临时保存的二维码上传到FastDFS
-            String url = env.getProperty("fdfs.httpurl") +
-                    fastDFSClient.uploadFile(new File(qrCodeFilePath));
-**/
-            user.setQrcode("");
+            String qrcodeStr = env.getProperty("qrcode.url") + user.getName();
+            String qrName = user.getId() + "_qr.png";
+            String qrcodeUrl = env.getProperty("qrcode.url") + qrName;
+            // 获取一个目录，用来保存二维码图片
+            String qrcodePath = env.getProperty("qrcode.path") + qrName;
+            qrCodeUtils.createQRCode(qrcodePath, qrcodeStr);
+            user.setQrcode(qrcodeUrl);
 
             userMapper.register(user);
             String content="<a href='http://localhost:8080/user/active?code="+user.getCode()+"'>点击激活</a>";

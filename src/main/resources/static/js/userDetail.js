@@ -2,6 +2,7 @@ $(function () {
     var loginId = $.cookie("loginId");
     var loginPw= $.cookie("loginPw");
     $.post("user/detail",{loginId:loginId,loginPw:loginPw},function (data){
+        $("#qrcode").attr('src',data.qrcode + "?time="+(new Date()).getTime());
         $("#face").attr('src',data.smallPic + "?time="+(new Date()).getTime());
         $("#name").attr('placeholder',data.name);
         $("#email").attr('placeholder',data.email);

@@ -23,8 +23,8 @@ public class QRCodeUtils {
      * @param content 二维码的内存（字符串）
      */
 	public void createQRCode(String filePath, String content) {
-		int width=300;      		//图片的宽度
-        int height=300;     		//图片的高度
+		int width=250;      		//图片的宽度
+        int height=250;     		//图片的高度
         String format="png";    	//图片的格式\
 
         /**

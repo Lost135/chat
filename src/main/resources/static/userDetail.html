@@ -10,8 +10,8 @@
     <script src="js/jquery-cookie.js"></script>
 </head>
 <body>
-<div class="rg_layout">
-    <div class="rg_form clearfix">
+<div class="rg_layout" style=" height: 1000px;">
+    <div class="rg_form clearfix" style="height: 1000px; overflow:auto;">
         <div class="rg_form_left">
             <p>用户主页</p>
         </div>
@@ -21,7 +21,7 @@
                 <table style="margin-top: 25px;">
                     <tr>
                         <td class="td_left">
-                            <img id="face" src="http://localhost:8080/pic/" style="border:2px solid #000000; width:150px; height:150px " >
+                            <img id="face" src="http://localhost:8080/pic/" style="border:2px solid #000000; width:250px; height:250px " >
                             <input type="file" id="pic" name="pic" >
                         </td>
                         <td class="td_right check">
@@ -30,6 +30,14 @@
                     </tr>
                 </table>
             </form>
+            <table style="margin-top: 25px;">
+                <tr>
+                    <td class="td_left">
+                        <img id="qrcode" src="http://localhost:8080/qr/" style="border:2px solid #000000; width:250px; height:250px " >
+                        <label for="name" style="margin-right: 100px;: ">二维码</label>
+                    </td>
+                </tr>
+            </table>
             <!--注册表单-->
             <form id="userForm">
                 <table style="margin-top: 25px;">
@@ -38,7 +46,7 @@
                             <label for="name">用户名</label>
                         </td>
                         <td class="td_right">
-                            <input type="text" id="name" name="name" placeholder="请输入账号">
+                            <input type="text" id="name" name="name" placeholder="账号">
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +62,7 @@
                             <label for="email">Email</label>
                         </td>
                         <td class="td_right">
-                            <input type="text" id="email" name="email" placeholder="请输入Email">
+                            <input type="text" id="email" name="email" placeholder="Email">
                         </td>
                     </tr>
                     <tr>
