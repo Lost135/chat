@@ -131,9 +131,6 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
 }
 
-.search {
-    margin: 15px 140px 0 115px;
-}
 
 .search_input {
     float: left;
@@ -148,14 +145,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-button {
-    float: left;
-    width: 90px;
-    height: 40px;
-    background: #ffc900;
     text-align: center;
-    line-height: 40px;
     color: #000;
-    font-size: 18px;
+    float: left;
+    width: 418px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #ffc900;
+    font-size: 14px;
 }
 
 ::-webkit-input-placeholder {
@@ -323,4 +320,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pageNum ul .threeword {
   width: 75px;
+}
+
+
+.little_title{
+    width: 417px;
+    background-color: #2aabd2;
+    padding: 10px;
+    font-size: 18px;
+    color: #666666;
+}
+
+.submit_fre{
+    float:right;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #ffc900;
+    font-size: 14px;
 }
