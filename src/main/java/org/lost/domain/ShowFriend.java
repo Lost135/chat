@@ -1,11 +1,28 @@
 package org.lost.domain;
 
-public class friend {
+public class ShowFriend {
     private String id;
     private String userId;
     private String friendId;
-    private String comments;
+    private String status;
     private String createTime;
+    private String friendName;
+
+    public ShowFriend(String id, String userId, String friendId, String status, String createTime) {
+        this.id = id;
+        this.userId = userId;
+        this.friendId = friendId;
+        this.status = status;
+        this.createTime = createTime;
+    }
+
+    public String getFriendName() {
+        return friendName;
+    }
+
+    public void setFriendName(String friendName) {
+        this.friendName = friendName;
+    }
 
     public String getId() {
         return id;
@@ -31,12 +48,12 @@ public class friend {
         this.friendId = friendId;
     }
 
-    public String getComments() {
-        return comments;
+    public String getStatus() {
+        return status;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCreateTime() {

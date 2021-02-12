@@ -13,6 +13,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserMapper {
 
+    @Select("select name from user where id = '${id}'")
+    String findNameById(String id);
+
     @Select("select * from user where name = '${name}'")
     User findByName(String name);
 
