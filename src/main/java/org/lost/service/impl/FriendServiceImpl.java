@@ -2,6 +2,7 @@ package org.lost.service.impl;
 
 import org.lost.domain.Friend;
 import org.lost.domain.ShowFriend;
+import org.lost.domain.User;
 import org.lost.mapper.FriendMapper;
 import org.lost.mapper.UserMapper;
 import org.lost.service.FriendService;
@@ -34,5 +35,26 @@ public class FriendServiceImpl implements FriendService {
             f.add(showFriend);
         }
         return f;
+    }
+
+    @Override
+    public ShowFriend findFriend(String id, String name) {
+        User user = userMapper.findByName(name);
+        ShowFriend friend = new ShowFriend();
+        if(user == null){
+            friend.setStatus("nouser");
+            return friend;
+        }else {
+            Friend f = friendMapper.findFriend(id,user.getId());
+            if (f == null){
+                friend.setFriendId(user.getId());
+                friend.setFriendName(name);
+                friend.setStatus("notadd");
+                return friend;
+            }else {
+                friend.setStatus("add");
+                return friend;
+            }
+        }
     }
 }

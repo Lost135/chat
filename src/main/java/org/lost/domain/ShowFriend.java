@@ -8,6 +8,9 @@ public class ShowFriend {
     private String createTime;
     private String friendName;
 
+    public ShowFriend() {
+    }
+
     public ShowFriend(String id, String userId, String friendId, String status, String createTime) {
         this.id = id;
         this.userId = userId;

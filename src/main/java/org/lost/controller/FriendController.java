@@ -22,4 +22,11 @@ public class FriendController {
         List<ShowFriend> friends = friendService.showFriend(id);
         return friends;
     }
+
+    @RequestMapping("/findFriend")
+    @ResponseBody
+    public ShowFriend findFriend(@RequestParam("loginId") String id,@RequestParam("friendName") String name){
+        ShowFriend friend = friendService.findFriend(id,name);
+        return friend;
+    }
 }
