@@ -1,5 +1,6 @@
 package org.lost.controller;
 
+import org.lost.domain.ResultInfo;
 import org.lost.domain.ShowFriend;
 import org.lost.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,15 @@ public class FriendController {
     public ShowFriend findFriend(@RequestParam("loginId") String id,@RequestParam("friendName") String name){
         ShowFriend friend = friendService.findFriend(id,name);
         return friend;
+    }
+
+    @RequestMapping("/handleFriend")
+    @ResponseBody
+    public ResultInfo handleFriend(@RequestParam("loginId") String userId, @RequestParam("friendId") String friendId){
+        if (userId.equals(friendId)){
+            return new ResultInfo(false,"用户为自己");
+        }
+        ResultInfo info = friendService.handleFriend(userId,friendId);
+        return info;
     }
 }
