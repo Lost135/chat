@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>窗口</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!--导入jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+    <script src="js/include.js"></script>
+</head>
+<body>
+<div id="header">
+</div>
+<div class="rg_layout" >
+
+    <div class="rg_form clearfix" style="height: 500px;">
+
+        <div class="rg_form_left">
+            <p>消息来自</p>
+            <p>bb</p>
+        </div>
+        <span id="errorMsg" style="color:#ff0000;text-align: center"></span>
+        <div class="rg_form_center" id="messageWindow">
+            <table id="messages" >
+                <tr class="friend" >
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">
+                            11111111111111111111111111111111111111111111111
+                            111111111111111111111111111111111111111111111111
+                            111111111111111111111111111111111111111111111111
+                            11111111111111111111111111111111111</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+                <tr class="user">
+                    <td>
+                        <textarea maxlength="255" readonly="readonly">hello</textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="search" style="margin-top: 10px">
+            <textarea id="message_input" class="message_input" maxlength="255"  placeholder="输入信息"></textarea>
+            <a href="javascript:void(0);" class="message_button" id="message_button">发送</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/window.js"></script>
+
+</body>
+</html>

@@ -1,25 +1,32 @@
 package org.lost.util;
 
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.stereotype.Service;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.concurrent.Future;
 
 /**
  * 发邮件工具类
  */
-public final class MailUtils {
+@Service
+public class MailUtils {
     private static final String USER = "lostxxx@163.com"; // 发件人称号，同邮箱地址
     private static final String PASSWORD = "ECSBLCDTOCGEJIWS"; // 如果是qq邮箱可以使户端授权码，或者登录密码
 
     /**
-     *
+     *异步发送邮件
      * @param to 收件人邮箱
      * @param text 邮件正文
      * @param title 标题
      */
     /* 发送验证信息的邮件 */
-    public static boolean sendMail(String to, String text, String title){
+    @Async
+    public Future sendMail(String to, String text, String title){
         try {
             final Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
@@ -60,15 +67,16 @@ public final class MailUtils {
             message.setContent(text, "text/html;charset=UTF-8");
             // 发送邮件
             Transport.send(message);
-            return true;
+            return new AsyncResult(true);
         }catch (Exception e){
             e.printStackTrace();
         }
-        return false;
+        return new AsyncResult(false);
     }
 
     public static void main(String[] args) throws Exception { // 做测试用
-        MailUtils.sendMail("itcast_xian@163.com","你好，这是一封测试邮件，无需回复。","测试邮件");
+        MailUtils mailUtils = new MailUtils();
+        mailUtils.sendMail("itcast_xian@163.com","你好，这是一封测试邮件，无需回复。","测试邮件");
         System.out.println("发送成功");
     }
 

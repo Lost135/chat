@@ -1,6 +1,5 @@
 package org.lost.service.impl;
 
-import org.apache.commons.io.FileUtils;
 import org.lost.domain.LUser;
 import org.lost.domain.NUser;
 import org.lost.domain.RUser;
@@ -11,14 +10,9 @@ import org.lost.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ClassUtils;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -30,6 +24,8 @@ public class UserServiceImpl implements UserService {
     private QRCodeUtils qrCodeUtils;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MailUtils mailUtils;
 
     @Override
     public void register(RUser rUser) {
@@ -55,12 +51,18 @@ public class UserServiceImpl implements UserService {
             // 获取一个目录，用来保存二维码图片
             String qrcodePath = env.getProperty("qrcode.path") + qrName;
             qrCodeUtils.createQRCode(qrcodePath, qrcodeStr);
+            /**
+            /另外保存至本地
+             BitMatrix bitMatrix = qrCodeUtils.createQRCode(qrcodePath, qrcodeStr);
+             Path fileqr = new File(env.getProperty("fileqr.path") + qrName).toPath();
+             MatrixToImageWriter.writeToPath(bitMatrix, "png", fileqr);
+             **/
             user.setQrcode(qrcodeUrl);
 
             userMapper.register(user);
             String content="<a href='http://localhost:8080/user/active?code="+user.getCode()+"'>点击激活</a>";
 
-            MailUtils.sendMail(user.getEmail(),content,"激活邮件");
+            mailUtils.sendMail(user.getEmail(),content,"激活邮件");
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("注册失败");
@@ -125,6 +127,12 @@ public class UserServiceImpl implements UserService {
             if(u != null){
                 //剪裁并保存图片
                 ImgUtil.scale(file,path + fileName,250,250,true);
+                /**
+                 /另外保存至本地
+                 String filepath = env.getProperty("fileimg.path");
+                 Image image = ImgUtil.scale(file,path + fileName,250,250,true);
+                ImageIO.write((BufferedImage) image, "png", new File(filepath + fileName));
+                 **/
                 return user;
             }else return null;
 

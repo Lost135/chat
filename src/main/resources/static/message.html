@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>消息</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!--导入jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+    <script src="js/include.js"></script>
+</head>
+<body>
+<div id="header">
+</div>
+<div class="rg_layout" style=" height: auto;">
+
+    <div class="rg_form clearfix" style="height: 1000px; overflow:auto;" >
+
+        <div class="rg_form_left">
+            <p>消息</p>
+        </div>
+        <div class="rg_form_center"  >
+            <span id="errorMsg" style="color:#ff0000;text-align: center"></span>
+                <h1 class="little_title">未读消息</h1><br/>
+                <table id="unread">
+                    <tr id="1">
+                        <td class="td_left" >
+                            <a href="">name1</a>
+                        </td>
+                        <td class="td_right" style="padding-left: 30px">
+                            <p>hello</p>
+                        </td>
+                    </tr>
+                </table>
+                <h1 class="little_title">已读消息</h1><br/>
+                <table id="read">
+                    <tr id="2">
+                        <td class="td_left" >
+                            <a href="">name2</a>
+                        </td>
+                        <td class="td_right" style="padding-left: 30px">
+                            <p>hello</p>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/message.js"></script>
+</body>
+</html>
